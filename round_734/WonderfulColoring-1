@@ -1,0 +1,41 @@
+[200~#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        map<char,int> m;
+        for(int i=0;i<s.length();i++)
+        {
+            m[s[i]]++;
+        }
+        int r=s.length()/2,g=s.length()/2;
+        int rval=r,gval=g;
+        for(auto it=m.begin();it!=m.end();it++)
+        {
+            if(r==0)
+                break;
+            if(it->second>=2)
+            {
+                r--;g--;
+            }
+            else
+            {
+                if(r==0)
+                    break;
+                if(r>=g)
+                    r--;
+                else
+                    g--;
+            }
+        }
+        cout<<rval-r<<"\n";
+    }
+    return 0;
+}
+
